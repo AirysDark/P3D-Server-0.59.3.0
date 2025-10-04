@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>SmartThreadPool.Full</id>
+    <version>2.2.5</version>
+    <authors>FixItFilix</authors>
+    <owners>FixItFilix</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Full SmartThreadPool directory package (includes source + binaries).</description>
+  </metadata>
+
+  <files>
+    <!-- Include everything recursively -->
+    <file src="**\*.*" target="content" />
+  </files>
+</package>

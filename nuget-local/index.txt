@@ -1,0 +1,136 @@
+dotnet nuget add source "C:\p3d\nuget-local" --name local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.GUI\Pokemon.3D.Server.Client.GUI.csproj" package objectlistview.official --version 2.9.1 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.GUI\Pokemon.3D.Server.Client.GUI.csproj" package Newtonsoft.Json --version 13.0.3 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Core\Pokemon.3D.Server.Core.csproj" package Newtonsoft.Json --version 13.0.3 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.Updater\Pokemon.3D.Server.Client.Updater.csproj" package SharpCompress --version 0.11.5 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Core\Pokemon.3D.Server.Core.csproj" package SharpCompress --version 0.11.5 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.GUI\Pokemon.3D.Server.Client.GUI.csproj" package SmartThreadPool --version 2.2.5 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Core\Pokemon.3D.Server.Core.csproj" package SmartThreadPool --version 2.2.5 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.Updater\Pokemon.3D.Server.Client.Updater.csproj" package system.buffers --version 4.4.0 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.Updater\Pokemon.3D.Server.Client.Updater.csproj" package system.memory --version 4.5.3 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.Updater\Pokemon.3D.Server.Client.Updater.csproj" package system.numerics.vectors --version 4.4.0 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.Updater\Pokemon.3D.Server.Client.Updater.csproj" package system.runtime.compilerservices.unsafe --version 5.0.0 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.Updater\Pokemon.3D.Server.Client.Updater.csproj" package system.text.encoding.codepages --version 5.0.0 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.GUI\Pokemon.3D.Server.Client.GUI.csproj" package objectlistview.official --version 2.9.1 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.GUI\Pokemon.3D.Server.Client.GUI.csproj" package Newtonsoft.Json --version 13.0.3 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Core\Pokemon.3D.Server.Core.csproj" package Newtonsoft.Json --version 13.0.3 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.Updater\Pokemon.3D.Server.Client.Updater.csproj" package SharpCompress --version 0.11.5 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Core\Pokemon.3D.Server.Core.csproj" package SharpCompress --version 0.11.5 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.GUI\Pokemon.3D.Server.Client.GUI.csproj" package SmartThreadPool --version 2.2.5 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Core\Pokemon.3D.Server.Core.csproj" package SmartThreadPool --version 2.2.5 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.Updater\Pokemon.3D.Server.Client.Updater.csproj" package system.buffers --version 4.4.0 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.Updater\Pokemon.3D.Server.Client.Updater.csproj" package system.memory --version 4.5.3 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.Updater\Pokemon.3D.Server.Client.Updater.csproj" package system.numerics.vectors --version 4.4.0 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.Updater\Pokemon.3D.Server.Client.Updater.csproj" package system.runtime.compilerservices.unsafe --version 5.0.0 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.Updater\Pokemon.3D.Server.Client.Updater.csproj" package system.text.encoding.codepages --version 5.0.0 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.GUI\Pokemon.3D.Server.Client.GUI.csproj" package objectlistview.official --version 2.9.1 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.GUI\Pokemon.3D.Server.Client.GUI.csproj" package Newtonsoft.Json --version 13.0.3 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Core\Pokemon.3D.Server.Core.csproj" package Newtonsoft.Json --version 13.0.3 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.Updater\Pokemon.3D.Server.Client.Updater.csproj" package SharpCompress --version 0.11.5 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Core\Pokemon.3D.Server.Core.csproj" package SharpCompress --version 0.11.5 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.GUI\Pokemon.3D.Server.Client.GUI.csproj" package SmartThreadPool --version 2.2.5 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Core\Pokemon.3D.Server.Core.csproj" package SmartThreadPool --version 2.2.5 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.Updater\Pokemon.3D.Server.Client.Updater.csproj" package system.buffers --version 4.4.0 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.Updater\Pokemon.3D.Server.Client.Updater.csproj" package system.memory --version 4.5.3 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.Updater\Pokemon.3D.Server.Client.Updater.csproj" package system.numerics.vectors --version 4.4.0 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.Updater\Pokemon.3D.Server.Client.Updater.csproj" package system.runtime.compilerservices.unsafe --version 5.0.0 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.Updater\Pokemon.3D.Server.Client.Updater.csproj" package system.text.encoding.codepages --version 5.0.0 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.GUI\Pokemon.3D.Server.Client.GUI.csproj" package objectlistview.official --version 2.9.1 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.GUI\Pokemon.3D.Server.Client.GUI.csproj" package Newtonsoft.Json --version 13.0.3 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Core\Pokemon.3D.Server.Core.csproj" package Newtonsoft.Json --version 13.0.3 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.Updater\Pokemon.3D.Server.Client.Updater.csproj" package SharpCompress --version 0.11.5 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Core\Pokemon.3D.Server.Core.csproj" package SharpCompress --version 0.11.5 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.GUI\Pokemon.3D.Server.Client.GUI.csproj" package SmartThreadPool --version 2.2.5 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Core\Pokemon.3D.Server.Core.csproj" package SmartThreadPool --version 2.2.5 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.Updater\Pokemon.3D.Server.Client.Updater.csproj" package system.buffers --version 4.4.0 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.Updater\Pokemon.3D.Server.Client.Updater.csproj" package system.memory --version 4.5.3 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.Updater\Pokemon.3D.Server.Client.Updater.csproj" package system.numerics.vectors --version 4.4.0 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.Updater\Pokemon.3D.Server.Client.Updater.csproj" package system.runtime.compilerservices.unsafe --version 5.0.0 --source local
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.Updater\Pokemon.3D.Server.Client.Updater.csproj" package system.text.encoding.codepages --version 5.0.0 --source local
+
+dotnet build "C:\p3d\Pokemon.3D.Server.Client.Updater\Pokemon.3D.Server.Client.Updater.csproj"
+
+dotnet restore "C:\p3d\Pokemon.3D.Server.Client.sln"
+dotnet build "C:\p3d\Pokemon.3D.Server.Client.sln"
+
+If fail
+
+dotnet sln "C:\p3d\Pokemon.3D.Server.Client.sln" add "C:\p3d\SmartThreadPool\SmartThreadPool\SmartThreadPool.csproj"
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Core\Pokemon.3D.Server.Core.csproj" reference "C:\p3d\SmartThreadPool\SmartThreadPool\SmartThreadPool.csproj"
+
+dotnet add "C:\p3d\Pokemon.3D.Server.Client.GUI\Pokemon.3D.Server.Client.GUI.csproj" reference "C:\p3d\SmartThreadPool\SmartThreadPool\SmartThreadPool.csproj"
+
+
+
+
+
+# Paths
+$gui     = "C:\p3d\Pokemon.3D.Server.Client.GUI\Pokemon.3D.Server.Client.GUI.csproj"
+$core    = "C:\p3d\Pokemon.3D.Server.Core\Pokemon.3D.Server.Core.csproj"
+$updater = "C:\p3d\Pokemon.3D.Server.Client.Updater\Pokemon.3D.Server.Client.Updater.csproj"
+
+# GUI
+dotnet remove "$gui" package objectlistview.official
+dotnet remove "$gui" package Newtonsoft.Json
+dotnet remove "$gui" package SmartThreadPool
+
+# Core
+dotnet remove "$core" package Newtonsoft.Json
+dotnet remove "$core" package SmartThreadPool
+
+# Updater
+dotnet remove "$updater" package Sharpcompress
+dotnet remove "$updater" package system.buffers
+dotnet remove "$updater" package system.memory
+dotnet remove "$updater" package system.numerics.vectors
+dotnet remove "$updater" package system.runtime.compilerservices.unsafe
+dotnet remove "$updater" package system.text.encoding.codepages
