@@ -212,8 +212,8 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\p3d\\nuget-local": {},
-        "C:\\p3d\\packages": {},
+        "C:\\p3d\\P3D-Client-0.59.3\\nuget-local": {},
+        "C:\\p3d\\P3D-Client-0.59.3\\packages": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Timers;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -29,7 +30,10 @@ namespace Pokemon_3D_Server_Core.Server_Client_Listener.Players
         /// </summary>
         public IWorkItemsGroup ThreadPool3 = new SmartThreadPool().CreateWorkItemsGroup(1);
 
-        private int LastHourCheck = 0;
+        // hourly notification state
+        private int _lastHourCheck = -1;
+        // fully-qualify to avoid collision with System.Threading.Timer
+        private System.Timers.Timer _hourlyTimer;
 
         /// <summary>
         /// Get/Set Client
@@ -67,7 +71,7 @@ namespace Pokemon_3D_Server_Core.Server_Client_Listener.Players
             IsActive = true;
 
             Reader = new StreamReader(Client.GetStream());
-            Writer = new StreamWriter(Client.GetStream());
+            Writer = new StreamWriter(Client.GetStream()) { AutoFlush = true };
 
             LastValidPing = DateTime.Now;
             LastValidMovement = DateTime.Now;
@@ -79,6 +83,27 @@ namespace Pokemon_3D_Server_Core.Server_Client_Listener.Players
             Thread Thread2 = new Thread(new ThreadStart(ThreadStartPinging)) { IsBackground = true };
             Thread2.Start();
             ThreadCollection.Add(Thread2);
+
+            // start hourly check (poll every 60s; only fires when hour changes)
+            _hourlyTimer = new System.Timers.Timer(60 * 1000);
+            _hourlyTimer.AutoReset = true;
+            _hourlyTimer.Elapsed += OnHourlyTick;
+            _hourlyTimer.Enabled = true;
+        }
+
+        private void DisposeHourlyTimer()
+        {
+            try
+            {
+                if (_hourlyTimer != null)
+                {
+                    _hourlyTimer.Stop();
+                    _hourlyTimer.Elapsed -= OnHourlyTick;
+                    _hourlyTimer.Dispose();
+                    _hourlyTimer = null;
+                }
+            }
+            catch { /* swallow */ }
         }
 
         private void ThreadStartListening()
@@ -97,6 +122,7 @@ namespace Pokemon_3D_Server_Core.Server_Client_Listener.Players
                     if (IsActive)
                     {
                         IsActive = false;
+                        DisposeHourlyTimer();
                         Core.Player.Remove(Client, "You have left the game.");
                     }
                 }
@@ -132,6 +158,8 @@ namespace Pokemon_3D_Server_Core.Server_Client_Listener.Players
                     {
                         if ((DateTime.Now - LastValidPing).TotalSeconds >= Core.Setting.NoPingKickTime)
                         {
+                            IsActive = false;
+                            DisposeHourlyTimer();
                             Core.Player.Remove(Client, Core.Setting.Token("SERVER_NOPING"));
                             return;
                         }
@@ -139,23 +167,20 @@ namespace Pokemon_3D_Server_Core.Server_Client_Listener.Players
 
                     if (Core.Setting.AFKKickTime >= 10)
                     {
-                        if ((DateTime.Now - LastValidMovement).TotalSeconds >= Core.Setting.AFKKickTime && Core.Player.GetPlayer(Client).BusyType == (int)Player.BusyTypes.Inactive)
+                        if ((DateTime.Now - LastValidMovement).TotalSeconds >= Core.Setting.AFKKickTime &&
+                            Core.Player.GetPlayer(Client).BusyType == (int)Player.BusyTypes.Inactive)
                         {
+                            IsActive = false;
+                            DisposeHourlyTimer();
                             Core.Player.Remove(Client, Core.Setting.Token("SERVER_AFK"));
                             return;
                         }
                     }
-
-                    /*
-                    if (DateTime.Now >= LoginStartTime.AddHours(LastHourCheck + 1))
-                    {
-                        SentToPlayer(new Package(Package.PackageTypes.ChatMessage, Core.Setting.Token("SERVER_LOGINTIME", (LastHourCheck + 1).ToString()), Client));
-                        LastHourCheck++;
-                    }
-                    */
                 }
                 catch (Exception ex)
                 {
+                    IsActive = false;
+                    DisposeHourlyTimer();
                     Core.Player.Remove(Client, ex.Message);
                     return;
                 }
@@ -167,6 +192,27 @@ namespace Pokemon_3D_Server_Core.Server_Client_Listener.Players
                 }
                 sw.Restart();
             } while (IsActive);
+        }
+
+        // hourly tick handler
+        private void OnHourlyTick(object sender, ElapsedEventArgs e)
+        {
+            if (!IsActive) return;
+
+            int nowHour = DateTime.Now.Hour;
+            if (nowHour == _lastHourCheck) return;
+
+            _lastHourCheck = nowHour;
+
+            int hoursOnline = (int)(DateTime.Now - LoginStartTime).TotalHours;
+            if (hoursOnline >= 1)
+            {
+                // Notify the player once per hour of playtime
+                SentToPlayer(new Package(
+                    Package.PackageTypes.ChatMessage,
+                    Core.Setting.Token("SERVER_LOGINTIME", hoursOnline.ToString()),
+                    Client));
+            }
         }
 
         /// <summary>

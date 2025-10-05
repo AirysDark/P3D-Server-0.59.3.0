@@ -20,8 +20,8 @@ C:\p3d\P3D-Server-0.59.3.0\Pokemon.3D.Server.Client.Updater\bin\Debug\System.Mem
 C:\p3d\P3D-Server-0.59.3.0\Pokemon.3D.Server.Client.Updater\bin\Debug\System.Numerics.Vectors.dll
 C:\p3d\P3D-Server-0.59.3.0\Pokemon.3D.Server.Client.Updater\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 C:\p3d\P3D-Server-0.59.3.0\Pokemon.3D.Server.Client.Updater\bin\Debug\System.Text.Encoding.CodePages.dll
-C:\p3d\P3D-Server-0.59.3.0\Pokemon.3D.Server.Client.Updater\obj\Debug\Pokemon.3D.Server.Client.Updater.csproj.AssemblyReference.cache
 C:\p3d\P3D-Server-0.59.3.0\Pokemon.3D.Server.Client.Updater\obj\Debug\Pokemon.3D.Server.Client.Updater.csproj.CoreCompileInputs.cache
 C:\p3d\P3D-Server-0.59.3.0\Pokemon.3D.Server.Client.Updater\obj\Debug\Pokemon.3D.Server.Client.Updater.csproj.CopyComplete
 C:\p3d\P3D-Server-0.59.3.0\Pokemon.3D.Server.Client.Updater\obj\Debug\Pokemon.3D.Server.Client.Updater.exe
 C:\p3d\P3D-Server-0.59.3.0\Pokemon.3D.Server.Client.Updater\obj\Debug\Pokemon.3D.Server.Client.Updater.pdb
+C:\p3d\P3D-Server-0.59.3.0\Pokemon.3D.Server.Client.Updater\obj\Debug\Pokemon.3D.Server.Client.Updater.csproj.AssemblyReference.cache

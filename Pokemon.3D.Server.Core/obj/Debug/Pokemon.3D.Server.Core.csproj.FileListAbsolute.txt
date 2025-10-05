@@ -16,7 +16,6 @@ C:\p3d\P3D-Server-0.59.3.0\Pokemon.3D.Server.Core\bin\Debug\Newtonsoft.Json.dll
 C:\p3d\P3D-Server-0.59.3.0\Pokemon.3D.Server.Core\bin\Debug\SharpCompress.dll
 C:\p3d\P3D-Server-0.59.3.0\Pokemon.3D.Server.Core\bin\Debug\SmartThreadPool.dll
 C:\p3d\P3D-Server-0.59.3.0\Pokemon.3D.Server.Core\bin\Debug\SmartThreadPool.pdb
-C:\p3d\P3D-Server-0.59.3.0\Pokemon.3D.Server.Core\obj\Debug\Pokemon.3D.Server.Core.csproj.AssemblyReference.cache
 C:\p3d\P3D-Server-0.59.3.0\Pokemon.3D.Server.Core\obj\Debug\Pokemon.3D.Server.Core.csproj.CoreCompileInputs.cache
 C:\p3d\P3D-Server-0.59.3.0\Pokemon.3D.Server.Core\obj\Debug\Pokemon.3D.Server.Core.csproj.CopyComplete
 C:\p3d\P3D-Server-0.59.3.0\Pokemon.3D.Server.Core\obj\Debug\Pokemon.3D.Server.Core.dll
