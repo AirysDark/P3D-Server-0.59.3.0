@@ -136,19 +136,15 @@
     <None Include="Resource\SwearInfractionFilterListData.json" />
     <None Include="Resource\Update.dat" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SmartThreadPool\SmartThreadPool\SmartThreadPool.csproj">
-      <Project>{74d4c33f-7cc8-4b2a-a7df-d8b6e63b6ebd}</Project>
-      <Name>SmartThreadPool</Name>
-    </ProjectReference>
-  </ItemGroup>
+  
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json">
       <Version>13.0.3</Version>
     </PackageReference>
-    <PackageReference Include="SmartThreadPool">
-      <Version>2.2.5</Version>
+    <PackageReference Include="sharpcompress">
+      <Version>0.11.5</Version>
     </PackageReference>
+    <PackageReference Include="SmartThreadPool" Version="2.2.5" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{74D4C33F-7CC8-4B2A-A7DF-D8B6E63B6EBD}</ProjectGuid>
+ <ProjectGuid>{74D4C33F-7CC8-4B2A-A7DF-D8B6E63B6EBD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <NoStandardLibraries>false</NoStandardLibraries>
     <AssemblyName>SmartThreadPool</AssemblyName>

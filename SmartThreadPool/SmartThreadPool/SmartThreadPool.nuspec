@@ -1,16 +1,24 @@
 <?xml version="1.0"?>
 <package>
   <metadata>
-    <id>SmartThreadPool.Full</id>
+    <id>SmartThreadPool</id>
     <version>2.2.5</version>
-    <authors>FixItFilix</authors>
-    <owners>FixItFilix</owners>
+    <authors>AirysDark</authors>
+    <owners>people</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Full SmartThreadPool directory package (includes source + binaries).</description>
+    <description>SmartThreadPool compiled library.</description>
+    <dependencies>
+      <group targetFramework=".NETFramework2.0" />
+      <group targetFramework=".NETStandard2.0" />
+    </dependencies>
   </metadata>
 
   <files>
-    <!-- Include everything recursively -->
-    <file src="**\*.*" target="content" />
+    <!-- net20 -->
+    <file src="bin\Release\Windows\SmartThreadPool.dll" target="lib\net20/" />
+    <file src="bin\Release\Windows\SmartThreadPool.pdb" target="lib\net20/" />
+    <!-- netstandard2.0 -->
+    <file src="bin\Release\netstandard2.0\SmartThreadPool.dll" target="lib\netstandard2.0/" />
+    <file src="bin\Release\netstandard2.0\SmartThreadPool.pdb" target="lib\netstandard2.0/" />
   </files>
 </package>
