@@ -1,0 +1,83 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\p3d\\P3D-Server-0.59.3.0\\Pokemon.3D.Server.Client.Updater\\Pokemon.3D.Server.Client.Updater.csproj": {}
+  },
+  "projects": {
+    "C:\\p3d\\P3D-Server-0.59.3.0\\Pokemon.3D.Server.Client.Updater\\Pokemon.3D.Server.Client.Updater.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\p3d\\P3D-Server-0.59.3.0\\Pokemon.3D.Server.Client.Updater\\Pokemon.3D.Server.Client.Updater.csproj",
+        "projectName": "Pokemon.3D.Server.Client.Updater",
+        "projectPath": "C:\\p3d\\P3D-Server-0.59.3.0\\Pokemon.3D.Server.Client.Updater\\Pokemon.3D.Server.Client.Updater.csproj",
+        "packagesPath": "C:\\Users\\AirysDark\\.nuget\\packages\\",
+        "outputPath": "C:\\p3d\\P3D-Server-0.59.3.0\\Pokemon.3D.Server.Client.Updater\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\AirysDark\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\p3d\\nuget-local": {},
+          "C:\\p3d\\packages": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net48": {
+          "dependencies": {
+            "System.Buffers": {
+              "target": "Package",
+              "version": "[4.4.0, )"
+            },
+            "System.Memory": {
+              "target": "Package",
+              "version": "[4.5.3, )"
+            },
+            "System.Numerics.Vectors": {
+              "target": "Package",
+              "version": "[4.4.0, )"
+            },
+            "System.Runtime.CompilerServices.Unsafe": {
+              "target": "Package",
+              "version": "[4.5.2, )"
+            },
+            "System.Text.Encoding.CodePages": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
+            "sharpcompress": {
+              "target": "Package",
+              "version": "[0.11.5, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

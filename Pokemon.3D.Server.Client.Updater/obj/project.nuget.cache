@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "k8YeF/0YaE34DpdI2ZP2S3rvQ4Y9BERmROWaqRixMgj/r9PP0a4R+zX5dn04MQMqt4W5zRUkBfBQ84nD+3ZWwQ==",
+  "success": true,
+  "projectFilePath": "C:\\p3d\\P3D-Server-0.59.3.0\\Pokemon.3D.Server.Client.Updater\\Pokemon.3D.Server.Client.Updater.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\AirysDark\\.nuget\\packages\\sharpcompress\\0.11.5\\sharpcompress.0.11.5.nupkg.sha512",
+    "C:\\Users\\AirysDark\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
+    "C:\\Users\\AirysDark\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\AirysDark\\.nuget\\packages\\system.numerics.vectors\\4.4.0\\system.numerics.vectors.4.4.0.nupkg.sha512",
+    "C:\\Users\\AirysDark\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.2\\system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512",
+    "C:\\Users\\AirysDark\\.nuget\\packages\\system.text.encoding.codepages\\4.5.0\\system.text.encoding.codepages.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

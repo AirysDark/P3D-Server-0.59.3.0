@@ -1,0 +1,400 @@
+﻿{
+
+    /*
+        Warning: The syntax for each setting is case sensitive.
+        String: "Text inside a quote you may use escape char like \\"
+        Integer: 0123456789
+        Boolean: true false
+
+        Please use the GUI Setting Editor in the server console if you are unsure how to change setting here.
+    */
+
+    "Main Application Setting":
+    {
+        "StartTime": "2025-10-04T09:33:47.3309446-07:00",
+        "ApplicationVersion": "0.59.3.0",
+        "ProtocolVersion": "0.5",
+
+        /*
+            CheckForUpdate: To allow or disallow the application to check for update upon launch.
+            Required Syntax: Boolean.
+        */
+        "CheckForUpdate": true,
+
+        /*
+            GeneratePublicIP: To allow or disallow the application to update the IP address upon launch.
+            Required Syntax: Boolean.
+        */
+        "GeneratePublicIP": true,
+
+        /*
+            MainEntryPoint: The main entry point of the server console.
+            Required Syntax: Integer.
+            jianmingyong Server Instance = 0 | RCON = 1
+        */
+        "MainEntryPoint": 0,
+    },
+
+    "Main Server Property":
+    {
+        /*
+            IPAddress: Public/External IP address of your server.
+            Required Syntax: Valid IPv4 address.
+        */
+        "IPAddress": "120.17.73.118",
+
+        /*
+            Port: The port to use on your server.
+            Required Syntax: Integer between 0 to 65535 inclusive.
+            Port cannot be the same as SCON and RCON.
+        */
+        "Port": 15124,
+
+        /*
+            ServerName: The server name to be display to public.
+            Required Syntax: String.
+        */
+        "ServerName": "P3D Server",
+
+        /*
+            ServerMessage: The server message to display when a player select a server.
+            Required Syntax: String.
+            "ServerMessage": null, => If you do not want to display the server message.
+        */
+        "ServerMessage": null,
+
+        /*
+            WelcomeMessage: The server message to display when a player joins a server.
+            Required Syntax: String.
+            "WelcomeMessage": null, => If you do not want to display the welcome message.
+        */
+        "WelcomeMessage": null,
+
+        "GameMode":
+        {
+            /*
+                Default GameMode: To allow or disallow default GameMode to join the server.
+                Required Syntax: Boolean.
+            */
+            "Kolben": true,
+
+            /*
+                Approved GameMode by staff: To allow or disallow custom GameMode to join the server.
+                Required Syntax: Boolean.
+            */
+            "1 Year Later 3D": false,
+            "Darkfire Mode": false,
+            "German": false,
+            "Pokemon Gold&Silver - RandomLocke": false,
+            "Pokemon Lost Silver": false,
+            "Pokemon Silver's Soul": false,
+            "Pokemon Universal 3D": false,
+
+            /*
+                Other GameMode: To support other GameMode.
+                Required Syntax: String.
+                You may insert multiple GameMode by using a "," (comma) after each GameMode name.
+            */
+            "Others": null
+        },
+
+        /*
+            MaxPlayers: The maximum amount of player in the server that can join.
+            Required Syntax: Integer. -1 = Unlimited Players. (Technically not unlimited but the bigggest amount the game can handle.)
+        */
+        "MaxPlayers": 20,
+
+        /*
+            OfflineMode: To allow or disallow offline save player joins the server.
+            - It will be allowed if other GameMode other than default server is allowed to join the server.
+            Required Syntax: Boolean.
+        */
+        "OfflineMode": false
+    },
+
+    "Advanced Server Property":
+    {
+        "World":
+        {
+            /*
+                Season: To set server default season.
+                Required Syntax: Integer.
+                Winter = 0 | Spring = 1 | Summer = 2 | Fall = 3 | Random = -1 | Default Season = -2 | SeasonMonth = -3
+            */
+            "Season": -2,
+
+            /*
+                Weather: To set server default weather.
+                Required Syntax: Integer.
+                Clear = 0 | Rain = 1 | Snow = 2 | Underwater = 3 | Sunny = 4 | Fog = 5 | Thunderstorm = 6 | Sandstorm = 7 | Ash = 8 | Blizzard = 9 | Random = -1 | Default Weather = -2 | WeatherSeason = -3 | Real World Weather = -4
+                Real world weather is not implemented. Do not use!
+            */
+            "Weather": -2,
+
+            /*
+                DoDayCycle: To allow or disallow the server to update day and night cycle.
+			    Required Syntax: Boolean.
+            */
+			"DoDayCycle": true,
+
+            /*
+                Time Offset: Offset the time in the server.
+                Required Syntax: Integer.
+                The time offset is counted by seconds. 60 = 1 minute time difference from your local time.
+            */
+            "TimeOffset": 0,
+
+            /*
+                SeasonMonth: To set the season based on local date. Must set Season = -3
+			    Required Syntax: Integer.
+                Winter = 0 | Spring = 1 | Summer = 2 | Fall = 3 | Random = -1 | Default Season = -2
+			    You may insert more than one season by separating it with a "," (comma).
+            */
+            "SeasonMonth":
+            {
+                "January": "-2",
+                "February": "-2",
+                "March": "-2",
+                "April": "-2",
+                "May": "-2",
+                "June": "-2",
+                "July": "-2",
+                "August": "-2",
+                "September": "-2",
+                "October": "-2",
+                "November": "-2",
+                "December": "-2"
+            },
+
+            /*
+                WeatherSeason: To set the weather based on server season. Must set Weather = -3
+			    Required Syntax: Integer.
+                Clear = 0 | Rain = 1 | Snow = 2 | Underwater = 3 | Sunny = 4 | Fog = 5 | Thunderstorm = 6 | Sandstorm = 7 | Ash = 8 | Blizzard = 9 | Random = -1 | Default Weather = -2 | Real World Weather = -4
+			    You may insert more than one season by separating it with a "," (comma).
+                Real world weather is not implemented. Do not use!
+            */
+            "WeatherSeason":
+            {
+                "Winter": "-2",
+                "Spring": "-2",
+                "Summer": "-2",
+                "Fall": "-2"
+            },
+
+            /*
+                DefaultWorldCountry: To set the default country for real world weather.
+                Required Syntax: String.
+                Valid Country name / City name. No fancy character. Use Default A-Z a-z letter.
+            */
+            "DefaultWorldCountry": "Australia"
+        },
+
+        "Network Ping System":
+        {
+            /*
+                NoPingKickTime: To kick player out if there are no valid ping for n amount of seconds.
+                Required Syntax: Integer. -1 to disable it.
+            */
+            "NoPingKickTime": 30,
+
+            /*
+                AFKKickTime: To kick player out if there are no valid activity for n amount of seconds.
+			    Required Syntax: Integer. -1 to disable it.
+            */
+            "AFKKickTime": 300,
+        
+            /*
+                AutoRestartTime: To automatically restart the server after n seconds. Disable PvP and trade features for the last 5 minutes of the countdown.
+			    Required Syntax: Integer. -1 to disable it.
+            */
+            "AutoRestartTime": -1
+        },
+
+        "Features":
+        {
+            /*
+                BlackList: To allow or disallow using Blacklist feature.
+			    Required Syntax: Boolean.
+            */
+            "BlackList": true,
+
+            /*
+                IPBlackList: To allow or disallow using IPBlacklist feature.
+			    Required Syntax: Boolean.
+            */
+            "IPBlackList": true,
+
+            /*
+                WhiteList: To allow or disallow using whitelist feature.
+			    Required Syntax: Boolean.
+            */
+            "WhiteList": false,
+
+            /*
+                OperatorList: To allow or disallow using operator feature.
+			    Required Syntax: Boolean.
+            */
+            "OperatorList": true,
+
+            /*
+                MuteList: To allow or disallow using mute feature.
+			    Required Syntax: Boolean.
+            */
+            "MuteList": true,
+
+            /*
+                OnlineSettingList: To allow or disallow using Online Setting feature.
+			    Required Syntax: Boolean.
+            */
+            "OnlineSettingList": true,
+
+            /*
+                SwearInfractionList: To allow or disallow using swear infraction feature.
+			    Required Syntax: Boolean.
+            */
+            "SwearInfractionList": false,
+
+            "Swear Infraction Feature":
+            {
+                /*
+                    SwearInfractionCap: Amount of infraction points before the first mute.
+				    Required Syntax: Integer. -1 to disable.
+                */
+                "SwearInfractionCap": 5,
+
+                /*
+                    SwearInfractionReset: Amount of days before it expire the infraction count.
+				    Required Syntax: Integer. -1 to disable.
+                */
+                "SwearInfractionReset": 1
+            },
+
+            "Chat Feature":
+            {
+                /*
+                    AllowChatInServer: To allow or disallow player to chat in the server.
+                    Required Syntax: Boolean.
+                */
+                "AllowChatInServer": true,
+
+                /*
+                    AllowChatChannels: To allow or disallow player to use chat channels in the server.
+                    Required Syntax: Boolean.
+                */
+                "AllowChatChannels": false,
+
+                /*
+                    CustomChannels: List of custom channels for the server.
+                    Required Syntax: String.
+                    "CustomChannels": null, => If there are no custom channels.
+                */
+                "CustomChannels": "German Lounge",
+
+                /*
+                    SpamResetDuration: Amount of seconds for the user to send the same word again.
+				    Required Syntax: Integer. -1 to disable.
+                */
+                "SpamResetDuration": -1
+            },
+
+            "PvP Feature":
+            {
+                /*
+                    AllowPvP: To allow or disallow player to PvP in the server.
+                    Required Syntax: Boolean.
+                */
+                "AllowPvP": true,
+
+                /*
+                    AllowPvPValidation: To allow or disallow PvP Validation system.
+                    Required Syntax: Boolean.
+                    Online player can change all they want. Offline player do not have the power to change any.
+                */
+                "AllowPvPValidation": true
+            },
+
+            "Trade Feature":
+            {
+                /*
+                    AllowTrade: To allow or disallow player to Trade in the server.
+                    Required Syntax: Boolean.
+                */
+                "AllowTrade": true
+            }
+        }
+    },
+
+    "Server Client Logger":
+    {
+        /*
+            LoggerInfo: To log server information.
+            Required Syntax: Boolean.
+        */
+        "LoggerInfo": true,
+
+        /*
+            LoggerWarning: To log server warning including ex exception.
+            Required Syntax: Boolean.
+        */
+        "LoggerWarning": true,
+
+        "LoggerDebug": true,
+
+        /*
+            LoggerChat:  To log server chat message.
+            Required Syntax: Boolean.
+        */
+        "LoggerChat": true,
+
+        /*
+            LoggerPM: To log server private chat message. (Actual Private Message content is not logged)
+            Required Syntax: Boolean.
+        */
+        "LoggerPM": true,
+
+        /*
+            LoggerServer: To log server message.
+            Required Syntax: Boolean.
+        */
+        "LoggerServer": true,
+
+        /*
+            LoggerTrade: To log trade request. (Actual Trade Request content is not logged)
+            Required Syntax: Boolean.
+        */
+        "LoggerTrade": true,
+
+        /*
+            LoggerPvP: To log pvp request. (Actual PvP Request content is not logged)
+            Required Syntax: Boolean.
+        */
+        "LoggerPvP": true,
+
+        /*
+            LoggerCommand: To log server command usage. (Debug Commands are not logged)
+            Required Syntax: Boolean.
+        */
+        "LoggerCommand": true
+    },
+
+    "RCON Server Property":
+    {
+        /*
+            RCONEnable: Enable RCON
+            Required Syntax: Boolean.
+        */
+        "RCONEnable": true,
+
+        /*
+            RCONPort: The port for RCON Listener.
+            Required Syntax: Integer between 0 to 65535 inclusive.
+        */
+        "RCONPort": 15125,
+
+        /*
+            RCONPassword: The password for the RCON to connect.
+		    Required Syntax: String. Please do not insert password that contains your personal infomation.
+        */
+        "RCONPassword": "Password"
+    }
+}

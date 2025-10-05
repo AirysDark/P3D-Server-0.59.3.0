@@ -1,0 +1,138 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\p3d\\P3D-Server-0.59.3.0\\Pokemon.3D.Server.Client.GUI\\Pokemon.3D.Server.Client.GUI.csproj": {}
+  },
+  "projects": {
+    "C:\\p3d\\P3D-Server-0.59.3.0\\Pokemon.3D.Server.Client.GUI\\Pokemon.3D.Server.Client.GUI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\p3d\\P3D-Server-0.59.3.0\\Pokemon.3D.Server.Client.GUI\\Pokemon.3D.Server.Client.GUI.csproj",
+        "projectName": "Pokemon.3D.Server.Client.GUI",
+        "projectPath": "C:\\p3d\\P3D-Server-0.59.3.0\\Pokemon.3D.Server.Client.GUI\\Pokemon.3D.Server.Client.GUI.csproj",
+        "packagesPath": "C:\\Users\\AirysDark\\.nuget\\packages\\",
+        "outputPath": "C:\\p3d\\P3D-Server-0.59.3.0\\Pokemon.3D.Server.Client.GUI\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\AirysDark\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\p3d\\nuget-local": {},
+          "C:\\p3d\\packages": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "projectReferences": {
+              "C:\\p3d\\P3D-Server-0.59.3.0\\Pokemon.3D.Server.Core\\Pokemon.3D.Server.Core.csproj": {
+                "projectPath": "C:\\p3d\\P3D-Server-0.59.3.0\\Pokemon.3D.Server.Core\\Pokemon.3D.Server.Core.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net48": {
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "ObjectListView.Official": {
+              "target": "Package",
+              "version": "[2.9.1, )"
+            },
+            "SmartThreadPool": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    },
+    "C:\\p3d\\P3D-Server-0.59.3.0\\Pokemon.3D.Server.Core\\Pokemon.3D.Server.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\p3d\\P3D-Server-0.59.3.0\\Pokemon.3D.Server.Core\\Pokemon.3D.Server.Core.csproj",
+        "projectName": "Pokemon.3D.Server.Core",
+        "projectPath": "C:\\p3d\\P3D-Server-0.59.3.0\\Pokemon.3D.Server.Core\\Pokemon.3D.Server.Core.csproj",
+        "packagesPath": "C:\\Users\\AirysDark\\.nuget\\packages\\",
+        "outputPath": "C:\\p3d\\P3D-Server-0.59.3.0\\Pokemon.3D.Server.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\AirysDark\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\p3d\\nuget-local": {},
+          "C:\\p3d\\packages": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net48": {
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "SmartThreadPool": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            },
+            "sharpcompress": {
+              "target": "Package",
+              "version": "[0.11.5, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

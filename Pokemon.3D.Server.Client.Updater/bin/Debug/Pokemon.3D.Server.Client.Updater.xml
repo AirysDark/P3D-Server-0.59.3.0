@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Pokemon.3D.Server.Client.Updater</name>
+    </assembly>
+    <members>
+        <member name="T:Pokemon_3D_Server_Client_Updater.Program">
+            <summary>
+            Class containing the Main Access point.
+            </summary>
+        </member>
+        <member name="M:Pokemon_3D_Server_Client_Updater.Program.Main(System.String[])">
+            <summary>
+            Main Access Point.
+            </summary>
+            <param name="args">Program Start Argument.</param>
+        </member>
+    </members>
+</doc>

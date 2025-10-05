@@ -1,0 +1,154 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Pokemon.3D.Server.Client.GUI</name>
+    </assembly>
+    <members>
+        <member name="F:Pokemon_3D_Server_Client_GUI.About.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Pokemon_3D_Server_Client_GUI.About.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:Pokemon_3D_Server_Client_GUI.About.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Pokemon_3D_Server_Client_GUI.ApplicationSettings">
+            <summary>
+            Class containing Application Setting GUI Component.
+            </summary>
+        </member>
+        <member name="M:Pokemon_3D_Server_Client_GUI.ApplicationSettings.#ctor">
+            <summary>
+            GUI Component Start Point.
+            </summary>
+        </member>
+        <member name="F:Pokemon_3D_Server_Client_GUI.ApplicationSettings.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Pokemon_3D_Server_Client_GUI.ApplicationSettings.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Pokemon_3D_Server_Client_GUI.ApplicationSettings.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Pokemon_3D_Server_Client_GUI.Settings">
+            <summary>
+            Class containing Settings Definations.
+            </summary>
+        </member>
+        <member name="P:Pokemon_3D_Server_Client_GUI.Settings.Setting">
+            <summary>
+            Get/Set Setting Name.
+            </summary>
+        </member>
+        <member name="P:Pokemon_3D_Server_Client_GUI.Settings.Value">
+            <summary>
+            Get/Set Setting Value.
+            </summary>
+        </member>
+        <member name="P:Pokemon_3D_Server_Client_GUI.Settings.Remark">
+            <summary>
+            Get/Set Setting Remark.
+            </summary>
+        </member>
+        <member name="M:Pokemon_3D_Server_Client_GUI.Settings.#ctor(System.String,System.String,System.String)">
+            <summary>
+            New Setting
+            </summary>
+            <param name="Setting">Setting Name.</param>
+            <param name="Value">Default Value.</param>
+            <param name="Remark">Remark.</param>
+        </member>
+        <member name="T:Pokemon_3D_Server_Client_GUI.Downloader">
+            <summary>
+            Class containing Downloader Stuff
+            </summary>
+        </member>
+        <member name="M:Pokemon_3D_Server_Client_GUI.Downloader.#ctor">
+            <summary>
+            New Downloader
+            </summary>
+        </member>
+        <member name="F:Pokemon_3D_Server_Client_GUI.Downloader.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Pokemon_3D_Server_Client_GUI.Downloader.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Pokemon_3D_Server_Client_GUI.Downloader.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Pokemon_3D_Server_Client_GUI.Main">
+            <summary>
+            Class containing Main GUI Element
+            </summary>
+        </member>
+        <member name="M:Pokemon_3D_Server_Client_GUI.Main.#ctor">
+            <summary>
+            GUI Component Start Point
+            </summary>
+        </member>
+        <member name="F:Pokemon_3D_Server_Client_GUI.Main.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Pokemon_3D_Server_Client_GUI.Main.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Pokemon_3D_Server_Client_GUI.Main.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:Pokemon_3D_Server_Client_GUI.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:Pokemon_3D_Server_Client_GUI.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Pokemon_3D_Server_Client_GUI.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Pokemon_3D_Server_Client_GUI.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

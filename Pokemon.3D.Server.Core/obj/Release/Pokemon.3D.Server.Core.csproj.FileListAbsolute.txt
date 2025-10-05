@@ -1,0 +1,2 @@
+C:\p3d\Pokemon.3D.Server.Core\obj\Release\Pokemon.3D.Server.Core.csproj.AssemblyReference.cache
+C:\p3d\Pokemon.3D.Server.Core\obj\Release\Pokemon.3D.Server.Core.csproj.CoreCompileInputs.cache
