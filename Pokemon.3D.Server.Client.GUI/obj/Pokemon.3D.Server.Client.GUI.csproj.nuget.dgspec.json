@@ -14,6 +14,7 @@
         "outputPath": "C:\\p3d\\P3D-Server-0.59.3.0\\Pokemon.3D.Server.Client.GUI\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
+        "UsingMicrosoftNETSdk": false,
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
@@ -27,8 +28,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\p3d\\P3D-Client-0.59.3\\nuget-local": {},
-          "C:\\p3d\\P3D-Client-0.59.3\\packages": {},
+          "C:\\p3d\\P3D-Server-0.59.3.0-gamejolt\\nuget-local": {},
+          "C:\\p3d\\P3D-Server-0.59.3.0-gamejolt\\packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,6 +40,11 @@
               }
             }
           }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -46,7 +52,7 @@
           "dependencies": {
             "Newtonsoft.Json": {
               "target": "Package",
-              "version": "[13.0.3, )"
+              "version": "[13.0.4, )"
             },
             "ObjectListView.Official": {
               "target": "Package",
@@ -54,13 +60,16 @@
             },
             "SmartThreadPool": {
               "target": "Package",
-              "version": "[2.2.5, )"
+              "version": "[2.3.0, )"
             }
           }
         }
       },
       "runtimes": {
         "win": {
+          "#import": []
+        },
+        "win-arm64": {
           "#import": []
         },
         "win-x64": {
@@ -81,6 +90,7 @@
         "outputPath": "C:\\p3d\\P3D-Server-0.59.3.0\\Pokemon.3D.Server.Core\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
+        "UsingMicrosoftNETSdk": false,
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
@@ -94,14 +104,19 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\p3d\\P3D-Client-0.59.3\\nuget-local": {},
-          "C:\\p3d\\P3D-Client-0.59.3\\packages": {},
+          "C:\\p3d\\P3D-Server-0.59.3.0-gamejolt\\nuget-local": {},
+          "C:\\p3d\\P3D-Server-0.59.3.0-gamejolt\\packages": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net48": {
             "projectReferences": {}
           }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -109,21 +124,24 @@
           "dependencies": {
             "Newtonsoft.Json": {
               "target": "Package",
-              "version": "[13.0.3, )"
+              "version": "[13.0.4, )"
             },
             "SmartThreadPool": {
               "target": "Package",
-              "version": "[2.2.5, )"
+              "version": "[2.3.0, )"
             },
             "sharpcompress": {
               "target": "Package",
-              "version": "[0.11.5, )"
+              "version": "[0.40.0, )"
             }
           }
         }
       },
       "runtimes": {
         "win": {
+          "#import": []
+        },
+        "win-arm64": {
           "#import": []
         },
         "win-x64": {

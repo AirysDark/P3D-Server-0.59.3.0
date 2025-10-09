@@ -1,7 +1,20 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\p3d\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\p3d\\P3D-Server-0.59.3.0-gamejolt\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6B462F07-FB93-4ABF-A7A3-454E570AE2B8}|Pokemon.3D.Server.Client.Updater\\Pokemon.3D.Server.Client.Updater.csproj|C:\\p3d\\P3D-Server-0.59.3.0-gamejolt\\pokemon.3d.server.client.updater\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B462F07-FB93-4ABF-A7A3-454E570AE2B8}|Pokemon.3D.Server.Client.Updater\\Pokemon.3D.Server.Client.Updater.csproj|solutionrelative:pokemon.3d.server.client.updater\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{332AADB0-98CE-4FD6-A63A-577FDAA7C9EC}|Pokemon.3D.Server.Core\\Pokemon.3D.Server.Core.csproj|c:\\p3d\\p3d-server-0.59.3.0-gamejolt\\pokemon.3d.server.core\\gamejolthttp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{332AADB0-98CE-4FD6-A63A-577FDAA7C9EC}|Pokemon.3D.Server.Core\\Pokemon.3D.Server.Core.csproj|solutionrelative:pokemon.3d.server.core\\gamejolthttp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{332AADB0-98CE-4FD6-A63A-577FDAA7C9EC}|Pokemon.3D.Server.Core\\Pokemon.3D.Server.Core.csproj|C:\\p3d\\P3D-Server-0.59.3.0-gamejolt\\pokemon.3d.server.core\\core.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{332AADB0-98CE-4FD6-A63A-577FDAA7C9EC}|Pokemon.3D.Server.Core\\Pokemon.3D.Server.Core.csproj|solutionrelative:pokemon.3d.server.core\\core.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GameJoltHttp.cs",
+              "DocumentMoniker": "C:\\p3d\\P3D-Server-0.59.3.0-gamejolt\\Pokemon.3D.Server.Core\\GameJoltHttp.cs",
+              "RelativeDocumentMoniker": "Pokemon.3D.Server.Core\\GameJoltHttp.cs",
+              "ToolTip": "C:\\p3d\\P3D-Server-0.59.3.0-gamejolt\\Pokemon.3D.Server.Core\\GameJoltHttp.cs",
+              "RelativeToolTip": "Pokemon.3D.Server.Core\\GameJoltHttp.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIEAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-08T07:23:00.556Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Core.cs",
+              "DocumentMoniker": "C:\\p3d\\P3D-Server-0.59.3.0-gamejolt\\Pokemon.3D.Server.Core\\Core.cs",
+              "RelativeDocumentMoniker": "Pokemon.3D.Server.Core\\Core.cs",
+              "ToolTip": "C:\\p3d\\P3D-Server-0.59.3.0-gamejolt\\Pokemon.3D.Server.Core\\Core.cs",
+              "RelativeToolTip": "Pokemon.3D.Server.Core\\Core.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-08T07:22:59.121Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\p3d\\P3D-Server-0.59.3.0-gamejolt\\Pokemon.3D.Server.Client.Updater\\Program.cs",
+              "RelativeDocumentMoniker": "Pokemon.3D.Server.Client.Updater\\Program.cs",
+              "ToolTip": "C:\\p3d\\P3D-Server-0.59.3.0-gamejolt\\Pokemon.3D.Server.Client.Updater\\Program.cs",
+              "RelativeToolTip": "Pokemon.3D.Server.Client.Updater\\Program.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAYwEoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-08T01:59:10.28Z",
+              "EditorCaption": ""
             }
           ]
         }

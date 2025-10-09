@@ -2,8 +2,9 @@
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
-using SharpCompress.Common;
-using SharpCompress.Reader;
+using SharpCompress.Archives;       // ? new API
+using SharpCompress.Common;         // ? ExtractionOptions
+using System.Linq;                  // ? for .Where(...)
 
 namespace Pokemon_3D_Server_Client_Updater
 {
@@ -18,36 +19,56 @@ namespace Pokemon_3D_Server_Client_Updater
         /// <param name="args">Program Start Argument.</param>
         public static void Main(string[] args)
         {
+            // Allow parent process to exit / release files
             Thread.Sleep(5000);
 
-            if (args.GetLength(0) > 0 && Directory.Exists(args[0].Replace("%20", " ")))
+            if (args.Length > 0)
             {
-                try
+                // Decode any %20 etc. and normalize the directory path
+                var baseDir = Uri.UnescapeDataString(args[0]);
+                if (Directory.Exists(baseDir))
                 {
-                    using (Stream stream = File.OpenRead(args[0].Replace("%20", " ") + "\\Pokemon.3D.Server.Client.GUI.zip"))
+                    var zipPath = Path.Combine(baseDir, "Pokemon.3D.Server.Client.GUI.zip");
+                    var exePath = Path.Combine(baseDir, "Pokemon.3D.Server.Client.GUI.exe");
+                    var extractTo = baseDir;
+
+                    try
                     {
-                        var reader = ReaderFactory.Open(stream);
-                        while (reader.MoveToNextEntry())
+                        if (File.Exists(zipPath))
                         {
-                            try
+                            // Open the archive (auto-detects type)
+                            using (var archive = ArchiveFactory.Open(zipPath))
                             {
-                                if (!reader.Entry.IsDirectory)
+                                foreach (var entry in archive.Entries.Where(e => !e.IsDirectory))
                                 {
-                                    reader.WriteEntryToDirectory(args[0].Replace("%20", " "), ExtractOptions.ExtractFullPath | ExtractOptions.Overwrite);
+                                    // Extract preserving folder structure; overwrite existing files
+                                    entry.WriteToDirectory(extractTo, new ExtractionOptions
+                                    {
+                                        ExtractFullPath = true,
+                                        Overwrite = true
+                                    });
                                 }
                             }
-                            catch (Exception) { }
+
+                            // Clean up the zip after successful extraction
+                            try { File.Delete(zipPath); } catch { /* ignore */ }
                         }
                     }
-
-                    if (File.Exists(args[0].Replace("%20", " ") + "\\Pokemon.3D.Server.Client.GUI.zip"))
+                    catch
                     {
-                        File.Delete(args[0].Replace("%20", " ") + "\\Pokemon.3D.Server.Client.GUI.zip");
+                        // Swallow per original behavior; keep going to try launching
+                    }
+
+                    // Launch the client GUI regardless (original behavior)
+                    try
+                    {
+                        Process.Start(exePath);
+                    }
+                    catch
+                    {
+                        // Ignore launch failure to mirror original silent handling
                     }
                 }
-                catch (Exception) { }
-
-                Process.Start(args[0].Replace("%20", " ") + "\\Pokemon.3D.Server.Client.GUI.exe");
             }
         }
     }

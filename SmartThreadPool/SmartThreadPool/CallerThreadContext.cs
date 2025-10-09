@@ -1,5 +1,4 @@
-
-#if !(_WINDOWS_CE) && !(_SILVERLIGHT) && !(WINDOWS_PHONE)
+#if (NETFRAMEWORK)
 
 using System;
 using System.Diagnostics;
@@ -42,14 +41,14 @@ namespace Amib.Threading.Internal
 		    return "HttpContext";
 		}
 
-        #endregion
+#endregion
 
 #region Private fields
 
 		private HttpContext _httpContext;
 		private LogicalCallContext _callContext;
 
-        #endregion
+#endregion
 
 		/// <summary>
 		/// Constructor
@@ -82,7 +81,8 @@ namespace Amib.Threading.Internal
 			bool captureCallContext, 
 			bool captureHttpContext)
 		{
-			Debug.Assert(captureCallContext || captureHttpContext);
+			// Remove this check since if the original call didn't have any context, we don't need to capture it here
+			//Debug.Assert(captureCallContext || captureHttpContext);
 
 			CallerThreadContext callerThreadContext = new CallerThreadContext();
 
@@ -133,6 +133,6 @@ namespace Amib.Threading.Internal
 		}
 	}
 
-    #endregion
+#endregion
 }
 #endif

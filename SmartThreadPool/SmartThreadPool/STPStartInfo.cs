@@ -11,21 +11,18 @@ namespace Amib.Threading
         private int _idleTimeout = SmartThreadPool.DefaultIdleTimeout;
         private int _minWorkerThreads = SmartThreadPool.DefaultMinWorkerThreads;
         private int _maxWorkerThreads = SmartThreadPool.DefaultMaxWorkerThreads;
-#if !(WINDOWS_PHONE)
         private ThreadPriority _threadPriority = SmartThreadPool.DefaultThreadPriority;
-#endif
         private string _performanceCounterInstanceName = SmartThreadPool.DefaultPerformanceCounterInstanceName;
         private bool _areThreadsBackground = SmartThreadPool.DefaultAreThreadsBackground;
         private bool _enableLocalPerformanceCounters;
         private string _threadPoolName = SmartThreadPool.DefaultThreadPoolName;
         private int? _maxStackSize = SmartThreadPool.DefaultMaxStackSize;
+	    private int? _maxQueueLength = SmartThreadPool.DefaultMaxQueueLength;
 
         public STPStartInfo()
         {
             _performanceCounterInstanceName = SmartThreadPool.DefaultPerformanceCounterInstanceName;
-#if !(WINDOWS_PHONE)
             _threadPriority = SmartThreadPool.DefaultThreadPriority;
-#endif
             _maxWorkerThreads = SmartThreadPool.DefaultMaxWorkerThreads;
             _idleTimeout = SmartThreadPool.DefaultIdleTimeout;
             _minWorkerThreads = SmartThreadPool.DefaultMinWorkerThreads;
@@ -37,16 +34,14 @@ namespace Amib.Threading
             _idleTimeout = stpStartInfo.IdleTimeout;
             _minWorkerThreads = stpStartInfo.MinWorkerThreads;
             _maxWorkerThreads = stpStartInfo.MaxWorkerThreads;
-#if !(WINDOWS_PHONE)
             _threadPriority = stpStartInfo.ThreadPriority;
-#endif
             _performanceCounterInstanceName = stpStartInfo.PerformanceCounterInstanceName;
             _enableLocalPerformanceCounters = stpStartInfo._enableLocalPerformanceCounters;
             _threadPoolName = stpStartInfo._threadPoolName;
             _areThreadsBackground = stpStartInfo.AreThreadsBackground;
-#if !(_SILVERLIGHT) && !(WINDOWS_PHONE)
+	        _maxQueueLength = stpStartInfo.MaxQueueLength;
             _apartmentState = stpStartInfo._apartmentState;
-#endif
+	        _maxStackSize = stpStartInfo._maxStackSize;
         }
 	  
 	    /// <summary>
@@ -91,7 +86,6 @@ namespace Amib.Threading
             }
 	    }
 
-#if !(WINDOWS_PHONE)
 	    /// <summary>
 	    /// Get/Set the scheduling priority of the threads in the pool.
 	    /// The Os handles the scheduling.
@@ -105,7 +99,7 @@ namespace Amib.Threading
                 _threadPriority = value; 
             }
 	    }
-#endif
+
         /// <summary>
         /// Get/Set the thread pool name. Threads will get names depending on this.
         /// </summary>
@@ -161,6 +155,26 @@ namespace Amib.Threading
  	        }
  	    }
 
+        /// <summary>
+        /// The maximum number of items allowed in the queue. Items attempting to be queued
+        /// when the queue is at its maximum will throw a QueueRejectedException.
+        /// 
+        /// Value must be > 0. A <code>null</code> value will leave the queue unbounded (i.e.
+        /// bounded only by available resources).
+        /// 
+        /// Ignored when <code>Enqueue()</code>ing on a Thread Pool from within a
+        /// <code>WorkItemsGroup</code>.
+        /// </summary>
+	    public virtual int? MaxQueueLength
+	    {
+	        get { return _maxQueueLength; }
+	        set
+	        {
+	            ThrowIfReadOnly();
+                _maxQueueLength = value;
+	        }
+	    }
+
 	    /// <summary>
         /// Get a readonly version of this STPStartInfo.
         /// </summary>
@@ -169,8 +183,6 @@ namespace Amib.Threading
         {
             return new STPStartInfo(this) { _readOnly = true };
         }
-
-#if !(_SILVERLIGHT) && !(WINDOWS_PHONE)
 
         private ApartmentState _apartmentState = SmartThreadPool.DefaultApartmentState;
 
@@ -187,8 +199,6 @@ namespace Amib.Threading
             }
         } 
 
-#if !(_SILVERLIGHT) && !(WINDOWS_PHONE)
-        
         /// <summary>
         /// Get/Set the max stack size of threads in the thread pool
         /// </summary>
@@ -205,8 +215,5 @@ namespace Amib.Threading
                 _maxStackSize = value;
             }
         }
-#endif
-
-#endif
     }
 }

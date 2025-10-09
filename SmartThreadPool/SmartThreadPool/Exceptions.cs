@@ -1,7 +1,5 @@
 using System;
-#if !(_WINDOWS_CE)
 using System.Runtime.Serialization;
-#endif
 
 namespace Amib.Threading
 {
@@ -65,10 +63,30 @@ namespace Amib.Threading
             : base(message, e)
         {
         }
+    } 
+    
+    
+    /// <summary>
+    /// Represents an exception in case the STP queue is full and work item cannot be queued.
+    /// Relevant when the STP has a queue size limit
+    /// </summary>
+    public sealed partial class QueueRejectedException : Exception
+    {
+        public QueueRejectedException()
+        {
+        }
+
+        public QueueRejectedException(string message)
+            : base(message)
+        {
+        }
+
+        public QueueRejectedException(string message, Exception e)
+            : base(message, e)
+        {
+        }
     }
 
-
-#if !(_WINDOWS_CE) && !(_SILVERLIGHT) && !(WINDOWS_PHONE)
     /// <summary>
     /// Represents an exception in case IWorkItemResult.GetResult has been canceled
     /// </summary>
@@ -105,7 +123,17 @@ namespace Amib.Threading
         }
     }
 
-#endif
+    /// <summary>
+    /// Represents an exception in case IWorkItemResult.GetResult has been timed out
+    /// </summary>
+    [Serializable]
+    public sealed partial class QueueRejectedException
+    {
+        public QueueRejectedException(SerializationInfo si, StreamingContext sc)
+            : base(si, sc)
+        {
+        }
+    }
 
     #endregion
 }

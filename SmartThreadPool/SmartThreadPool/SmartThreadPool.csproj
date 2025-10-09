@@ -1,90 +1,62 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
- <ProjectGuid>{74D4C33F-7CC8-4B2A-A7DF-D8B6E63B6EBD}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <NoStandardLibraries>false</NoStandardLibraries>
+    <TargetFrameworks>net46</TargetFrameworks>
     <AssemblyName>SmartThreadPool</AssemblyName>
-    <RootNamespace>Amib.Threading</RootNamespace>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
-    <OldToolsVersion>3.5</OldToolsVersion>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <RootNamespace>SmartThreadPool</RootNamespace>
+    <DefineConstants>TRACE;</DefineConstants>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>2.3.0</Version>
+    <Company />
+    <Authors>Ami Bar</Authors>
+    <Description>Smart Thread Pool, implemented in .NET</Description>
+    <PackageTags>SmartThreadPool Thread Pool .NET</PackageTags>
+    <PackageLicenseExpression>MS-PL</PackageLicenseExpression>
+    <Copyright>Ami Bar</Copyright>
+    <PackageProjectUrl>https://github.com/amibar/SmartThreadPool</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/amibar/SmartThreadPool</RepositoryUrl>
+    <Configurations>Debug;Release;Publish</Configurations>
+    <PackageReleaseNotes>Added .net core 3.1 and 5.0 support</PackageReleaseNotes>
+    <PackageId>SmartThreadPool.dll</PackageId>
+    <AssemblyVersion>2.3.0.0</AssemblyVersion>
+    <FileVersion>2.3.0.0</FileVersion>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\Windows\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;_WINDOWS</DefineConstants>
-    <DocumentationFile>
-    </DocumentationFile>
-    <NoWarn>1591</NoWarn>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>full</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\Windows\</OutputPath>
-    <DefineConstants>TRACE;_WINDOWS</DefineConstants>
-    <DebugSymbols>true</DebugSymbols>
-    <NoWarn>1591</NoWarn>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Publish|AnyCPU'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>..\publish\dist\bin\Windows\</OutputPath>
-    <DefineConstants>TRACE;_WINDOWS,_PUBLISH</DefineConstants>
-    <Optimize>true</Optimize>
-    <NoWarn>1591</NoWarn>
-    <DebugType>full</DebugType>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <CodeAnalysisLogFile>bin\Release\Windows\SmartThreadPool.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
-    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
-    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
-    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
-    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
-    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
-    <UseVSHostingProcess>false</UseVSHostingProcess>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
+
+ <ItemGroup Condition=" '$(TargetFramework)' == 'net40' ">
     <Reference Include="System.Web" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="WorkItem.WorkItemResult.cs" />
-    <Compile Include="CallerThreadContext.cs" />
-    <Compile Include="CanceledWorkItemsGroup.cs" />
-    <Compile Include="EventWaitHandleFactory.cs" />
-    <Compile Include="Exceptions.cs" />
-    <Compile Include="Interfaces.cs" />
-    <Compile Include="InternalInterfaces.cs" />
-    <Compile Include="PriorityQueue.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SmartThreadPool.cs" />
-    <Compile Include="STPEventWaitHandle.cs" />
-    <Compile Include="STPPerformanceCounter.cs" />
-    <Compile Include="STPStartInfo.cs" />
-    <Compile Include="SynchronizedDictionary.cs" />
-    <Compile Include="SmartThreadPool.ThreadEntry.cs" />
-    <Compile Include="WIGStartInfo.cs" />
-    <Compile Include="WorkItem.cs" />
-    <Compile Include="WorkItemFactory.cs" />
-    <Compile Include="WorkItemInfo.cs" />
-    <Compile Include="WorkItemResultTWrapper.cs" />
-    <Compile Include="WorkItemsGroup.cs" />
-    <Compile Include="WorkItemsGroupBase.cs" />
-    <Compile Include="WorkItemsQueue.cs" />
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <Reference Include="System.Web" />
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
-  <Import Project="sign.proj" Condition="'$(Configuration)|$(Platform)' == 'Publish|AnyCPU'" />
-  <ProjectExtensions>
-    <VisualStudio AllowExistingFolder="true" />
-  </ProjectExtensions>
+
+ <ItemGroup Condition=" '$(TargetFramework)' == 'net46' ">
+    <Reference Include="System.Web" />
+  </ItemGroup>
+
+<ItemGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>STPTests</_Parameter1>
+    </AssemblyAttribute>
+</ItemGroup>
+
+<ItemGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>STPTests</_Parameter1>
+    </AssemblyAttribute>
+</ItemGroup>
+
+<ItemGroup Condition="'$(Configuration)|$(Platform)'=='Publish|AnyCPU'">
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>STPTests,PublicKey=00240000048000009400000006020000002400005253413100040000010001004fe3d39add741ba7c8d52cd1eb0d94c7d79060ad956cbaff0e51c1dce94db10356b261778bc1ac3114b3218434da6fcd8416dd5507653809598f7d2afc422099ce4f6b7b0477f18e6c57c727ef2a7ab6ee56e6b4589fe44cb0e25f2875a3c65ab0383ee33c4dd93023f7ce1218bebc8b7a9a1dac878938f5c4f45ea74b6bd8ad</_Parameter1>
+    </AssemblyAttribute>
+</ItemGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Publish|AnyCPU'">
+    <Optimize>true</Optimize>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\publish\Keys\STP.snk</AssemblyOriginatorKeyFile>
+    <OutputPath>..\publish\dist\bin</OutputPath>
+  </PropertyGroup>
+
 </Project>

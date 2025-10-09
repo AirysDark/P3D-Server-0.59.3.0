@@ -177,10 +177,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json">
-      <Version>13.0.3</Version>
+      <Version>13.0.4</Version>
     </PackageReference>
     <PackageReference Include="ObjectListView.Official" Version="2.9.1" />
-    <PackageReference Include="SmartThreadPool" Version="2.2.5" />
+    <PackageReference Include="SmartThreadPool" Version="2.3.0" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
