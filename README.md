@@ -1,115 +1,54 @@
-# Pokémon 3D – GameJolt Edition (Server)
+# 2D-3D Style Engine Server
 
-Standalone **Pokémon 3D server backend** compatible with the updated P3D-Client.  
-Provides authentication, save synchronization, and multiplayer session handling through the new GameJolt-linked login system.
+Reusable server backend derived from the P3D server codebase and being refactored into a project-neutral foundation for **2D-3D-style.engine** and future compatible projects.
 
----
+The repository remains on the `P3D-Server-0.59.3.0` codebase for legacy protocol compatibility. Existing wire-level protocol fields are intentionally preserved unless explicitly migrated, so compatible clients are not broken by cosmetic or architectural renaming.
 
-## ⚡ Features
+## Current direction
 
-- 🧩 **Account Registration**
-  - Automatically registers users from the GameJolt login flow.
-  - Generates a default save on first join.
+- Central server identity in `server.identity.json`
+- Configurable server and product names
+- Configurable protocol profile
+- Configurable `ServerLogin` display/service name
+- Optional legacy GameJolt-compatible authentication API
+- Optional updater
+- Configurable external swear-filter source settings
+- Legacy multiplayer and RCON services retained
+- Future separation between engine core, optional services, and game/protocol modules
 
-- 💾 **Online Save Management**
-  - Saves stored under each user’s GameJolt ID.
-  - Automatically loads the correct save when the user rejoins.
+## Configuration
 
-- 🔐 **Secure Auth**
-  - Validates credentials using GameJolt API keypair.
-  - Rejects offline saves for verified servers.
+Edit `server.identity.json`:
 
-- ⚙️ **Server Configuration**
-  - Supports JSON-based config for port, host, and authentication key.
-
-- 📡 **Protocol Matching**
-  - Enforces matching protocol version with clients.
-  - Prevents desyncs and incompatible builds.
-
-- 🧱 **Lightweight Architecture**
-  - Runs via .NET or Mono — no external database required.
-
----
-
-## 🛠️ Installation
-
-### Prerequisites
-- Windows or Linux (Mono)
-- .NET Framework 4.8+ or .NET 6 Runtime
-
-### Steps
-1. Clone or download:
-   ```bash
-   git clone https://github.com/<yourusername>/P3D-Server.git
-   cd P3D-Server
-   ```
-2. Build using Visual Studio or `dotnet build`.
-3. Run:
-   ```bash
-   bin/Release/P3D-Server.exe
-   ```
-
-The server will start on the default port `15124` and listen for connections.
-
----
-
-## ⚙️ Configuration
-
-| File | Description |
-|------|--------------|
-| `config/server.json` | Port, MOTD, GameJolt API settings |
-| `saves/` | Player save files (by GameJolt ID) |
-| `logs/` | Runtime logs and join info |
-
-Example `server.json`:
 ```json
 {
-  "server_name": "P3D Local Test",
-  "port": 15124,
-  "require_online_saves": true,
-  "gamejolt_verify": true,
-  "max_players": 16
+  "ServerName": "2D-3D Style Server",
+  "ProductName": "2D-3D-style.engine Server",
+  "ProtocolProfile": "legacy-p3d",
+  "GameJoltCompatibilityEnabled": true,
+  "UpdaterEnabled": true,
+  "UpdateManifestSource": "",
+  "LoginServiceName": "ServerLogin",
+  "LoginServicePort": 8080,
+  "SwearFilterExternalSourceEnabled": false,
+  "SwearFilterSource": ""
 }
 ```
 
----
+`GameJoltCompatibilityEnabled` controls the legacy-compatible authentication service. The internal implementation may remain GameJolt-compatible while the user-facing service identity is configured through `LoginServiceName`.
 
-## 🔗 Integration Flow
+## Compatibility policy
 
-1. Player logs in from **P3D-Client** with their GameJolt account.
-2. The client passes the verified GameJolt ID to the server on join.
-3. The server:
-   - Checks if the user has a save under `/saves/{user_id}/`.
-   - If missing → creates a default save.
-   - Loads the save and admits the player to the session.
+Fields such as `PokemonVisible`, `PokemonPosition`, `PokemonSkin`, `BattlePokemonData`, and `PvP_Pokemon` may be part of the existing client/server wire protocol. They are not renamed blindly. Protocol changes should be isolated and versioned before legacy identifiers are removed.
 
-Server log example:
-```
-[INFO] New connection: AirysDark (uid=6bd6e7e51ad144bca0c9c5db9788e1e9)
-[INFO] Default save created for AirysDark
-[INFO] Player joined successfully using verified GameJolt credentials.
-```
+## Build status
 
----
+The identity and optional-service refactor is present on `master`. The broader physical project/solution rename from `Pokemon.3D.Server.*` to `Engine2D3D.Server.*` is a separate migration step and must be build-verified before it is considered complete.
 
-## 🧩 Developer Info
+## Scope
 
-- Protocol versioning handled by `ServersManager.PROTOCOLVERSION`
-- Default MOTD and capacity set in `server.json`
-- Online/offline validation inside `PlayerJoinHandler.vb`
-- Compatible with `P3D-Client` builds after v0.59.3-online
+This repository is the only target for these server changes. The `2D-3D-style.engine` repository is not modified by this work.
 
----
+## License and upstream attribution
 
-## 🧑‍💻 Authors
-
-- **AirysDark** – Server developer / protocol maintainer  
-- Original engine: **Kolben Games**
-
----
-
-## ⚖️ License
-
-Non-commercial educational use only.  
-All Pokémon assets are © Nintendo / Game Freak.  
-This codebase is a derivative of the original Pokémon 3D project by Kolben Games.
+This repository remains subject to the licensing and upstream obligations of the original codebase and its dependencies. Project-neutral refactoring does not remove those obligations.
