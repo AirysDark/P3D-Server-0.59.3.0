@@ -1,0 +1,1 @@
+Project rename migration in progress. New Engine2D3D solution and project files have been added. Physical directory consolidation and removal of legacy Pokemon.3D.Server.* directories is the next commit step.
