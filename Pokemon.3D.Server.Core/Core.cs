@@ -1,66 +1,59 @@
 ﻿#pragma warning disable 1591
 
 using System;
+using System.IO;
+using Newtonsoft.Json;
 using Pokemon_3D_Server_Core.Server_Client_Listener.Commands;
 using Pokemon_3D_Server_Core.Server_Client_Listener.Loggers;
 using Pokemon_3D_Server_Core.Server_Client_Listener.Settings;
 using Pokemon_3D_Server_Core.Shared.jianmingyong;
 using Pokemon_3D_Server_Core.Shared.jianmingyong.Modules;
-// add: resolves GameJoltHttpServer wrapper
 using Pokemon_3D_Server_Core.GameJolt;
 
 namespace Pokemon_3D_Server_Core
 {
-    /// <summary>
-    /// Main server initialization and lifecycle management.
-    /// </summary>
     public class Core
     {
         public static Setting Setting { get; private set; }
+        public static ServerIdentity Identity { get; private set; }
         public static LoggerCollection Logger { get; private set; }
         public static Updater Updater { get; private set; }
         public static Server_Client_Listener.Servers.Listener Listener { get; private set; }
         public static RCON_Client_Listener.Servers.Listener RCONListener { get; private set; }
         public static CommandCollection Command { get; private set; }
 
-        #region Pokémon 3D Listener
         public static Server_Client_Listener.Players.PlayerCollection Player { get; } =
             new Server_Client_Listener.Players.PlayerCollection();
         public static Server_Client_Listener.Worlds.World World { get; } =
             new Server_Client_Listener.Worlds.World();
-        #endregion
-
-        #region RCON Listener
         public static RCON_Client_Listener.Players.PlayerCollection RCONPlayer { get; } =
             new RCON_Client_Listener.Players.PlayerCollection();
         public static RCON_Client_Listener.Uploader.UploaderQueue RCONUploadQueue { get; } =
             new RCON_Client_Listener.Uploader.UploaderQueue();
-        #endregion
-
-        #region RCON GUI Listener
         public static RCON_GUI_Client_Listener.Servers.Listener RCONGUIListener { get; set; }
         public static RCON_GUI_Client_Listener.Downloader.DownloaderQueue RCONGUIDownloadQueue { get; } =
             new RCON_GUI_Client_Listener.Downloader.DownloaderQueue();
-        #endregion
-
-        #region GameJolt HTTP Listener
-        /// <summary>
-        /// GameJolt-compatible HTTP server wrapper. Initialized in Start() (no hardcoded port here).
-        /// </summary>
-        public static GameJoltHttpServer GameJoltServer { get; private set; }
-        #endregion
 
         /// <summary>
-        /// Entry point for the server.
+        /// Legacy GameJolt-compatible HTTP implementation exposed through a project-neutral ServerLogin identity.
         /// </summary>
+        public static GameJoltHttpServer ServerLogin { get; private set; }
+
+        /// <summary>
+        /// Compatibility alias retained for existing integrations.
+        /// </summary>
+        public static GameJoltHttpServer GameJoltServer => ServerLogin;
+
         public static void Start(string directory)
         {
             try
             {
-                // Load configuration & logger
+                Identity = ServerIdentity.Load(directory);
                 Setting = new Setting(directory);
                 Logger = new LoggerCollection();
                 Logger.Start();
+
+                Console.WriteLine($"[Core] Starting {Identity.ProductName} ({Identity.ServerName}) using protocol profile '{Identity.ProtocolProfile}'.");
 
                 if (!Setting.Load())
                 {
@@ -73,41 +66,32 @@ namespace Pokemon_3D_Server_Core
                 Setting.Save();
                 Console.WriteLine("[Core] Settings loaded and verified.");
 
-                // Optional updater
-                if (Setting.CheckForUpdate)
+                if (Identity.UpdaterEnabled && Setting.CheckForUpdate)
                 {
                     Updater = new Updater();
                     Updater.Update();
                 }
-
-                // --- Start GameJolt HTTP service (port via env var or default 8080) ---
-                int httpPort = 8080;
-                try
+                else
                 {
-                    string env = Environment.GetEnvironmentVariable("P3D_GJ_HTTP_PORT");
-                    if (!string.IsNullOrWhiteSpace(env) &&
-                        int.TryParse(env, out var parsed) &&
-                        parsed > 0 && parsed < 65536)
-                    {
-                        httpPort = parsed;
-                    }
-                }
-                catch
-                {
-                    // ignore and keep default
+                    Console.WriteLine("[Core] Updater disabled by server.identity.json or legacy settings.");
                 }
 
-                GameJoltServer = new GameJoltHttpServer(httpPort);
-                LogActivity($"GameJolt HTTP online at http://localhost:{httpPort}/ (site + API)");
+                if (Identity.GameJoltCompatibilityEnabled)
+                {
+                    ServerLogin = new GameJoltHttpServer(Identity.LoginServicePort, Identity.LoginServiceName);
+                    LogActivity($"{Identity.LoginServiceName} online at http://localhost:{Identity.LoginServicePort}/ (legacy GameJolt-compatible API enabled)");
+                }
+                else
+                {
+                    LogActivity($"{Identity.LoginServiceName} compatibility service is disabled.");
+                }
 
-                // Launch Pokémon 3D server
                 if (Setting.MainEntryPoint == Setting.MainEntryPointType.jianmingyong_Server)
                 {
                     Listener = new Server_Client_Listener.Servers.Listener();
                     Listener.Start();
                     Console.WriteLine("[Core] Main listener started.");
 
-                    // Start RCON if enabled
                     if (Setting.RCONEnable)
                     {
                         RCONListener = new RCON_Client_Listener.Servers.Listener();
@@ -116,10 +100,8 @@ namespace Pokemon_3D_Server_Core
                     }
                 }
 
-                // Initialize commands
                 Command = new CommandCollection();
                 Command.AddCommand();
-
                 Console.WriteLine("[Core] Server initialization complete.");
             }
             catch (Exception ex)
@@ -128,9 +110,6 @@ namespace Pokemon_3D_Server_Core
             }
         }
 
-        /// <summary>
-        /// Stops and disposes all running background services.
-        /// </summary>
         public static void Dispose()
         {
             try
@@ -138,9 +117,7 @@ namespace Pokemon_3D_Server_Core
                 Listener?.Dispose();
                 RCONListener?.Dispose();
                 Logger?.Dispose();
-
-                try { GameJoltServer?.Stop(); } catch { /* ignore */ }
-
+                try { ServerLogin?.Stop(); } catch { }
                 Console.WriteLine("[Core] Server shutdown complete.");
             }
             catch (Exception ex)
@@ -149,25 +126,65 @@ namespace Pokemon_3D_Server_Core
             }
         }
 
-        /// <summary>
-        /// Write an activity line to both Logger (if available) and console, for real-time visibility.
-        /// Use this for user registrations, logins, joins, disconnects, etc.
-        /// </summary>
         public static void LogActivity(string message)
         {
             string consoleLine = $"[{DateTime.Now:G}] [Activity] {message}";
+            try { Logger?.Log(message, Server_Client_Listener.Loggers.Logger.LogTypes.Info); }
+            catch { }
+            Console.WriteLine(consoleLine);
+        }
+    }
+
+    /// <summary>
+    /// Central project-neutral identity and optional service configuration.
+    /// Stored in server.identity.json next to the server configuration.
+    /// </summary>
+    public sealed class ServerIdentity
+    {
+        public string ServerName { get; set; } = "2D-3D Style Server";
+        public string ProductName { get; set; } = "2D-3D-style.engine Server";
+        public string ProtocolProfile { get; set; } = "legacy-p3d";
+        public bool GameJoltCompatibilityEnabled { get; set; } = true;
+        public bool UpdaterEnabled { get; set; } = true;
+        public string UpdateManifestSource { get; set; } = string.Empty;
+        public string LoginServiceName { get; set; } = "ServerLogin";
+        public int LoginServicePort { get; set; } = 8080;
+        public bool SwearFilterExternalSourceEnabled { get; set; } = false;
+        public string SwearFilterSource { get; set; } = string.Empty;
+
+        public static ServerIdentity Load(string directory)
+        {
+            var path = Path.Combine(directory ?? string.Empty, "server.identity.json");
+            var identity = new ServerIdentity();
             try
             {
-                // Mirror into the existing logger as Info
-                Logger?.Log(message, Server_Client_Listener.Loggers.Logger.LogTypes.Info);
+                if (File.Exists(path))
+                {
+                    var loaded = JsonConvert.DeserializeObject<ServerIdentity>(File.ReadAllText(path));
+                    if (loaded != null)
+                    {
+                        loaded.Normalize();
+                        return loaded;
+                    }
+                }
+                else
+                {
+                    Directory.CreateDirectory(Path.GetDirectoryName(path) ?? ".");
+                    File.WriteAllText(path, JsonConvert.SerializeObject(identity, Formatting.Indented));
+                }
             }
-            catch
-            {
-                // ignore logger errors
-            }
+            catch { }
+            identity.Normalize();
+            return identity;
+        }
 
-            // Always echo to console for live server visibility
-            Console.WriteLine(consoleLine);
+        private void Normalize()
+        {
+            if (string.IsNullOrWhiteSpace(ServerName)) ServerName = "2D-3D Style Server";
+            if (string.IsNullOrWhiteSpace(ProductName)) ProductName = "2D-3D-style.engine Server";
+            if (string.IsNullOrWhiteSpace(ProtocolProfile)) ProtocolProfile = "legacy-p3d";
+            if (string.IsNullOrWhiteSpace(LoginServiceName)) LoginServiceName = "ServerLogin";
+            if (LoginServicePort < 1 || LoginServicePort > 65535) LoginServicePort = 8080;
         }
     }
 }
