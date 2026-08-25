@@ -1,0 +1,12 @@
+{
+  "ServerName": "2D-3D Style Server",
+  "ProductName": "2D-3D-style.engine Server",
+  "ProtocolProfile": "legacy-p3d",
+  "GameJoltCompatibilityEnabled": true,
+  "UpdaterEnabled": true,
+  "UpdateManifestSource": "",
+  "LoginServiceName": "ServerLogin",
+  "LoginServicePort": 8080,
+  "SwearFilterExternalSourceEnabled": false,
+  "SwearFilterSource": ""
+}
